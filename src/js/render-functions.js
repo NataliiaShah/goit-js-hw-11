@@ -1,5 +1,4 @@
 export function createMarkup(arr) {
-  listImages.innerHTML = ("beforeend", createMarkup(data.hits));
   return arr.map(({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) =>
     `<li class="gallery-item">
           <a class="gallery-link" href="${largeImageURL}">
@@ -31,4 +30,5 @@ export function createMarkup(arr) {
         </li>`)
     .join('');
 }
+
 
