@@ -31,6 +31,7 @@ function onSearch(event) {
           title: 'Error',
           message: 'Sorry, there are no images matching your search query. Please try again!',
         });
+        listImages.innerHTML = ("beforeend", createMarkup(data.hits));
       }
 const refreshPage = new SimpleLightbox('.gallery a', {
         captions: true,
@@ -46,5 +47,6 @@ const refreshPage = new SimpleLightbox('.gallery a', {
       loader.style.display = 'none';
       console.log(err);
     });
+
 }
 
