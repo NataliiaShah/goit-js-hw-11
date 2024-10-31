@@ -31,9 +31,10 @@ function onSearch(event) {
           title: 'Error',
           message: 'Sorry, there are no images matching your search query. Please try again!',
         });
-        listImages.innerHTML = ("beforeend", createMarkup(data.hits));
+
       }
-const refreshPage = new SimpleLightbox('.gallery a', {
+       listImages.innerHTML = ("beforeend", createMarkup(data.hits));
+    const refreshPage = new SimpleLightbox('.gallery a', {
         captions: true,
         captionsData: 'alt',
         captionDelay: 250,
@@ -42,10 +43,13 @@ const refreshPage = new SimpleLightbox('.gallery a', {
       refreshPage.refresh();
 
       formSearch.reset();
+
     })
+
     .catch((err) => {
       loader.style.display = 'none';
       console.log(err);
+
     });
 
 }
