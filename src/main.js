@@ -15,12 +15,13 @@ const loader = document.querySelector('.loader');
 loader.style.display = 'none';
 formSearch.addEventListener('submit', onSearch);
 
+
 function onSearch(event) {
   event.preventDefault();
   listImages.innerHTML = '';
   loader.style.display = 'block';
 
-  const inputValue = event.target.elements.search.value;
+  const inputValue = event.target.elements.search.value.trim();
 
   getPictures(inputValue)
     .then(data => {
@@ -35,11 +36,6 @@ function onSearch(event) {
       }
 
       listImages.innerHTML = createMarkup(data.hits);
-    const refreshPage = new SimpleLightbox('.gallery a', {
-        captions: true,
-        captionsData: 'alt',
-        captionDelay: 250,
-      });
 
       refreshPage.refresh();
 
@@ -49,9 +45,15 @@ function onSearch(event) {
 
     .catch((err) => {
       loader.style.display = 'none';
+      iziToast.error({ title: 'Error', message: error.message });
       console.log(err);
 
     });
 
 }
 
+ const refreshPage = new SimpleLightbox('.gallery a', {
+        captions: true,
+        captionsData: 'alt',
+        captionDelay: 250,
+      });
