@@ -33,7 +33,8 @@ function onSearch(event) {
         });
 
       }
-       listImages.innerHTML = ("beforeend", createMarkup(data.hits));
+
+      listImages.innerHTML = createMarkup(data.hits);
     const refreshPage = new SimpleLightbox('.gallery a', {
         captions: true,
         captionsData: 'alt',
